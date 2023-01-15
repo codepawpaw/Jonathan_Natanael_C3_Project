@@ -52,6 +52,21 @@ public class Restaurant {
 
         menus.remove(itemName);
     }
+
+    public int calculateTotalOrderItem(List<String> selectedMenu) {
+        int total = 0;
+
+        for(int i = 0; i < selectedMenu.size(); i++) {
+            String currentSelectedMenuName = selectedMenu.get(i);
+            Item menu = menus.get(currentSelectedMenuName);
+            if (menu != null) {
+                total += menu.getPrice();
+            }
+        }
+
+        return total;
+    }
+
     public void displayDetails(){
         System.out.println("Restaurant:"+ name + "\n"
                 +"Location:"+ location + "\n"
